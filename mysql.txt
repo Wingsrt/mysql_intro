@@ -1,0 +1,16 @@
+CREATE DATABASE sql1;
+CREATE TABLE author(id int(20) AUTO_INCREMENT PRIMARY KEY,author varchar(30))ENGINE=INNODB;
+inser into author(author)values("raam");
+inser into author(author)values("rahul");
+inser into author(author)values("shaam");
+inser into author(author)values("shantanu");
+CREATE TABLE post(id int(20) AUTO_INCREMENT PRIMARY KEY,posts varchar(30),linkid int(20),FOREIGN KEY(linkid)REFERENCES author(id) ON DELETE CASCADE )ENGINE=INNODB;
+INSERT INTO post(posts,linkid)VALUES("wow",1);
+INSERT INTO post(posts,linkid)VALUES("its hello",2);
+INSERT INTO post(posts,linkid)VALUES("india",3);
+INSERT INTO post(posts,linkid)VALUES("paksiatan",3);
+CREATE TABLE comment(id int(20) ,FOREIGN KEY(id)REFERENCES post(id) ON DELETE CASCADE,comments varchar(30));
+CREATE TABLE tags(id int(20) ,FOREIGN KEY(id)REFERENCES post(id) ON DELETE CASCADE,tags varchar(30));
+INSERT INTO tags(id,tags)VALUES(3,"india");
+DELETE FROM table author WHERE id=1;
+
